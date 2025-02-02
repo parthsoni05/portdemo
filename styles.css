@@ -1,0 +1,366 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+body {
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans for body text */
+    background: url('background_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+    height: 8px; /* Adjust the height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #1c3869; /* No background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #acd3ff; /* Light grey color for the thumb */
+    border-radius: 50px; /* Rounded corners to make it a dot */
+    width: 8px; /* Initial width for the thumb */
+    transition: width 0.3s ease; /* Smooth transition on hover */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    width: 16px; /* Elongates the thumb on hover */
+    background: #649fe3; /* Darker grey on hover */
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* More translucent */
+    padding: 20px; /* Increased height */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    z-index: 10;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transition for opacity and visibility */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    padding-right: 60px; /* Add padding to the right to prevent overlap */
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat for brand */
+    font-size: 22px; /* Larger font size for "Parth Soni" */
+    color: white; /* Ensure the text color is white */
+    margin-right: auto; /* Pushes the brand towards the center */
+    padding-left: 20px; /* Add some padding to the left */
+}
+
+.navbar-links {
+    display: flex; /* Use flexbox for links */
+}
+
+nav a {
+    margin: 0 15px;
+    padding: 15px 20px; /* Adjusted for increased height */
+    text-decoration: none;
+    color: white;
+    font-size: 18px; /* Same font size as before */
+    font-weight: bold;
+    position: relative;
+    display: flex; /* Use flexbox for icon and text */
+    align-items: center; /* Center items vertically */
+}
+
+nav a i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #acd3ff; /* Light blue underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Show class for navbar */
+.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+}
+
+/* Toggle Button Styles */
+.toggle-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Position the button on the right */
+    z-index: 20;
+    font-size: 24px; /* Adjust size as needed */
+}
+
+/* Home Section Styles */
+.home-section {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full screen height */
+    padding: 20px;
+    position: relative; /* Set position to relative for absolute positioning of child elements */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    transition: opacity 1s ease, visibility 1s ease; /* Transition for opacity and visibility */
+}
+
+.home-section.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    width: 100%;
+}
+
+.profile-photo {
+    flex: 3; /* Take up 1 part of the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover{
+    transform: scale(1.05);
+}
+
+.profile-photo img {
+    width: 350px; /* Set the width of the image */
+    height: 350px; /* Set the height of the image */
+    border-radius: 15px; /* Make it a rounded square */
+    border: px solid ; /* White border */
+    box-shadow: 0px 0px 50px rgba(1, 1, 1, 1); /* Shadow effect */
+}
+
+.text-content {
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: left; /* Align text to the left */
+    padding-left: 20px; /* Add some padding */
+}
+
+.name {
+    font-size: 64px; /* Large font size for name */
+    font-weight: bold; /* Bold font */
+    color: #f0f0f0; /* Light color for better contrast */
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Transition for opacity */
+}
+
+.title {
+    font-size: 48px; /* Smaller font size for title */
+    color: #d0d0d0; /* Slightly darker color for better contrast */
+    transition: opacity 1s ease; /* Transition for opacity */
+}
+
+/* Section Headings */
+.section-heading {
+    font-size: 30px; /* Font size for section headings */
+    color: #f0f0f0; /* Light color for better contrast */
+    text-align: center; /* Center text */
+    text-decoration: underline; /* Underline the text */
+    margin: 20px 0; /* Space above and below the heading */
+}
+
+/* About Me Text */
+.about-me {
+    font-size: 18px; /* Font size for the about me text */
+    color: #d0d0d0; /* Slightly darker color for better contrast */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Space above the paragraph */
+    font-style: italic; /* Italicize the text */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 800px; /* Limit the width for better readability */
+    margin-left: auto; /* Center the paragraph */
+    margin-right: auto; /* Center the paragraph */
+    transition: opacity 1s ease; /* Transition for opacity */
+}
+
+/* Show class for about me text */
+.about-me.show {
+    opacity: 1; /* Fully visib0le */
+}
+
+.mt {
+    font-size: 70px;
+    color: #d0d0d0;
+    flex: 2; /* Take up 2 parts of the space */
+    text-align: center; /* Align text to the left */
+    padding-block: 11%;
+    transition: opacity 1s ease;
+}
+
+.normal-text {
+    font-size: 22px; /* Font size for the about me text */
+    color: #d0d0d0; /* Slightly darker color for better contrast */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Space above the paragraph */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 800px; /* Limit the width for better readability */
+    margin-left: auto; /* Center the paragraph */
+    margin-right: auto; /* Center the paragraph */
+    transition: opacity 1s ease; /* Transition for opacity */
+}
+
+/* Assignments Section Styles */
+.assignments-section {
+    height: 100vh; /* Full screen height */
+}
+
+/* Achievements Section Styles */
+.achievements-section {
+    height: 100vh; /* Full screen height */
+}
+
+.achievements-list {
+    list-style-type: circle; /* Circle list styling */
+    padding: 0; /* Remove padding */
+    margin: 10px 0; /* Reduce space above and below the list */
+    color: #d0d0d0; /* Text color */
+    font-size: 20px; /* Font size for the list items */
+    text-align: center; /* Center text */
+}
+
+.achievements-list li {
+    margin: 5px 0; /* Reduce space between list items */
+}
+
+.ach-images {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Distribute space evenly between items */
+    align-items: center; /* Center items vertically */
+    height: auto; /* Allow height to adjust based on content */
+    margin-top: 10px; /* Reduce space above the images */
+}
+
+.image-container {
+    position: relative;
+    z-index: 1;
+    text-align: center; /* Center text below images */
+    margin: 10px; /* Space around each image container */
+}
+
+.image-container p {
+    margin: 5px 0; /* Space above and below the text */
+    color: #d0d0d0; /* Text color */
+    font-size: 18px; /* Font size for the hyperlink text */
+}
+
+.image-container a {
+    text-decoration: none; /* Remove underline from links */
+    color: #d0d0d0; /* Text color */
+}
+
+.image-container a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.certimage {
+    width: 350px; /* Set the width of the image */
+    height: 250px; /* Set the height of the image */
+    border: 7px solid black; /* Black border */
+    transition: transform 0.3s ease;
+}
+
+.arcimage {
+    width: 250px; /* Set the width of the image */
+    height: 250px; /* Set the height of the image */
+    transition: transform 0.3s ease;
+}
+
+.certimage:hover, .arcimage:hover {
+    transform: scale(1.05); /* Scale the image to 110% on hover */
+}
+
+
+/* Projects Section Styles */
+.projects-section {
+    height: 100vh; /* Full screen height */
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 10px; /* Add padding */
+    background-color: #1c1c1c; /* Optional: background color for the section */
+    color: #d0d0d0; /* Default text color */
+}
+
+.section-heading {
+    font-size: 28px; /* Font size for the section heading */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.contact-links {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.contact-item {
+    margin: 40px; /* Space around each item */
+    text-align: center; /* Center text */
+    z-index: 1;
+    justify-content: space-around; /* Distribute space evenly between items */
+    align-items: center; /* Center items vertically */
+}
+
+.contact-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: #d0d0d0; /* Text color */
+    font-size: 20px; /* Font size for the text */
+}
+
+.contact-item i {
+    font-size: 40px; /* Size of the icons */
+    margin-bottom: 5px; /* Space between icon and text */
+    transition: transform 0.3s ease;
+}
+
+.contact-item i:hover{
+    transform: scale(1.05); /* Scale the image to 110% on hover */
+}
+
+.contact-item a:hover {
+    color: #acd3ff; /* Change color on hover */
+
+}
