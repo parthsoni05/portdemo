@@ -20,7 +20,7 @@ const observer = new IntersectionObserver((entries) => {
             name.style.opacity = 1; // Fade in the name
             title.style.opacity = 1; // Fade in the title
             aboutHeading.style.opacity = 1; // Fade in the about heading
-            aboutMeText.classList.add('show'); // Fade in the about me text
+            aboutMeText.classList.add('show'); // Fade in the "about me" text
         }
     });
 });
